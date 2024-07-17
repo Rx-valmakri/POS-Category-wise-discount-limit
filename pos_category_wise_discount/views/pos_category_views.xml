@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="Pos_category_discount_limit_form_view" model="ir.ui.view">
+        <field name="name">pos.category.discount.limit.inherit.form</field>
+        <field name="model">pos.category</field>
+        <field name="inherit_id" ref="point_of_sale.product_pos_category_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='sequence']" position="after">
+                <field name="currency_id" invisible="1"/>
+                <field name="company_id" invisible="1"/>
+                <field name="discount_limit" invisible="is_pos_settings_enabled != True"/>
+                <field name="is_pos_settings_enabled" invisible="1" widget="monetary"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
